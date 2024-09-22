@@ -7,7 +7,6 @@ node_modules/
 .expo/
 dist/
 web-build/
-
 # Native
 *.orig.*
 *.jks
@@ -23,7 +22,8 @@ web-build/
 npm-debug.*
 yarn-debug.*
 yarn-error.*
-
+package-lock.json
+pnpm-lock.yaml
 # macOS
 .DS_Store
 *.pem

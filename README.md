@@ -1,0 +1,1 @@
+https://expo.nodejs.cn/tutorial/screenshot/
