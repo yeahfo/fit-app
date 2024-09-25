@@ -1,3 +1,4 @@
+import { Link }                       from 'expo-router';
 import { useState, useRef }           from 'react';
 import { StatusBar }                  from 'expo-status-bar';
 import { Platform, StyleSheet, View } from 'react-native';
@@ -7,27 +8,27 @@ import * as MediaLibrary              from 'expo-media-library';
 import { captureRef }                 from 'react-native-view-shot';
 import domtoimage                     from 'dom-to-image';
 import * as SplashScreen              from 'expo-splash-screen';
-import ImageViewer                    from './components/ImageViewer';
-import Button                         from './components/Button';
-import IconButton                     from './components/IconButton';
-import CircleButton                   from './components/CircleButton';
-import EmojiPicker                    from './components/EmojiPicker';
-import EmojiList                      from './components/EmojiList';
-import EmojiSticker                   from './components/EmojiSticker';
+import ImageViewer                    from '../components/ImageViewer';
+import Button                         from '../components/Button';
+import IconButton                     from '../components/IconButton';
+import CircleButton                   from '../components/CircleButton';
+import EmojiPicker                    from '../components/EmojiPicker';
+import EmojiList                      from '../components/EmojiList';
+import EmojiSticker                   from '../components/EmojiSticker';
+
+import PlaceholderImage from '../../assets/images/background-image.png';
 
 SplashScreen.preventAutoHideAsync().then( r => {
-    console.log( r );
+    JSON.stringify( r );
 } );
-setTimeout( SplashScreen.hideAsync, 5000 );
-const PlaceholderImage = require( './assets/images/background-image.png' );
+setTimeout( SplashScreen.hideAsync, 1000 );
 
-// noinspection JSUnusedGlobalSymbols
-export default function App() {
+exports.default = function Page() {
     const imageRef = useRef();
     const [ status, requestPermission ] = MediaLibrary.usePermissions();
     if ( status === null ) {
         requestPermission().then( r => {
-            console.log( r );
+            JSON.stringify( r );
         } );
     }
     const [ pickedEmoji, setPickedEmoji ] = useState( null );
@@ -49,6 +50,7 @@ export default function App() {
     };
     const onReset = () => {
         setShowAppOptions( false );
+        setSelectedImage( null );
     };
     const onSaveImageAsync = async () => {
         if ( Platform.OS !== 'web' ) {
@@ -90,8 +92,6 @@ export default function App() {
     const onModalClose = () => {
         setIsModalVisible( false );
     };
-
-    // noinspection JSValidateTypes
     return (
         <GestureHandlerRootView style={ styles.container }>
             <View style={ styles.imageContainer }>
@@ -111,21 +111,24 @@ export default function App() {
             ) : (
                 <View style={ styles.footerContainer }>
                     <Button theme="primary" label="Choose a photo" onPress={ pickImageAsync }/>
-                    <Button label="Use this photo" onPress={ () => setShowAppOptions( true ) }/>
+                    <Button theme="" label="Use this photo" onPress={ () => setShowAppOptions( true ) }/>
+                    <Link style={ [ { color: '#d384bd' } ] } href={'Jack'}>Jack</Link>
+                    <Link style={ [ { color: '#489e48' } ] } href="/home">HOME</Link>
                 </View>
             ) }
+
             <EmojiPicker isVisible={ isModalVisible } onClose={ onModalClose }>
                 <EmojiList onSelect={ setPickedEmoji } onCloseModal={ onModalClose }/>
             </EmojiPicker>
-            <StatusBar style="auto"/>
+            <StatusBar style="dark"/>
         </GestureHandlerRootView>
     );
-}
+};
 
 const styles = StyleSheet.create( {
     container: {
         flex: 1,
-        backgroundColor: '#25292e',
+        backgroundColor: '#596e59',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -146,3 +149,4 @@ const styles = StyleSheet.create( {
         flexDirection: 'row',
     },
 } );
+// exports.default = Page;
