@@ -16,7 +16,6 @@ exports.default = () => {
                         title="登录"
                         thumbStyle={ { width: 30, height: 30 } }
                         thumb={ <Icon name="wechat" color="green"/> }
-                        extra="登录"
                     />
                     <Card.Body>
                         <View style={ { height: 42 } }>
@@ -26,7 +25,10 @@ exports.default = () => {
                             <Input prefix={ <Icon name="lock"/> } placeholder="密码"/>
                         </View>
                         <View style={ { height: 42 } }>
-                            <Button type="ghost">登录</Button>
+                            <Button  style={{
+                                backgroundColor:'#489e48',
+                                borderRadius: 48
+                            }}>登录</Button>
                         </View>
                     </Card.Body>
                     <Card.Footer
