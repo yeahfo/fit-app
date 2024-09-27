@@ -5,6 +5,7 @@ exports.default = () => {
     const { user } = useLocalSearchParams();
     return (
         <View>
+
             <Text style={ [ { fontSize: 28 } ] }>User: { user }</Text>
             <Link href="/">INDEX</Link>
         </View>
