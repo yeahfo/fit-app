@@ -113,7 +113,7 @@ exports.default = function Page() {
                     <Button theme="primary" label="Choose a photo" onPress={ pickImageAsync }/>
                     <Button theme="" label="Use this photo" onPress={ () => setShowAppOptions( true ) }/>
                     <Link style={ [ { color: '#d384bd' } ] } href={'Jack'}>Jack</Link>
-                    <Link style={ [ { color: '#489e48' } ] } href="/home">HOME</Link>
+                    <Link style={ [ { color: '#489e48' } ] } href="/login">Login</Link>
                 </View>
             ) }
 

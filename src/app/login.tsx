@@ -1,8 +1,7 @@
-import { Button, Card, Icon, Input, WhiteSpace, WingBlank } from '@ant-design/react-native';
-import { useFonts }                                         from 'expo-font';
-import { Link }                                             from 'expo-router';
-import React                                                from 'react';
-import { View }                                             from 'react-native';
+import { View, Button, Card, Icon, Input, WhiteSpace, WingBlank } from '@ant-design/react-native';
+import { useFonts }                                               from 'expo-font';
+import { Link }                                                   from 'expo-router';
+import React                                                      from 'react';
 
 exports.default = () => {
     useFonts( {
@@ -15,15 +14,13 @@ exports.default = () => {
                     backgroundColor: 'rgba(219,234,219,0.28)'
                 } }>
                     <Card.Header
-                        title="登录"
+                        title="Login"
                         thumbStyle={ { width: 30, height: 30 } }
-                        thumb={ <Icon name="wechat" color="green"/> }
+                        thumb={ <Icon name="wechat" color="rgba(164,231,164,0.72)"/> }
                     />
                     <Card.Body>
                         <View style={ { height: 42 } }>
                             <Input style={ {
-                                marginLeft: 10,
-                                width: 400,
                                 borderWidth: 1,
                                 borderColor: 'rgba(164,231,164,0.72)',
                                 borderRadius: 42
@@ -33,8 +30,6 @@ exports.default = () => {
                         <WhiteSpace size="lg"/>
                         <View style={ { height: 42 } }>
                             <Input style={ {
-                                marginLeft: 10,
-                                width: 400,
                                 borderWidth: 1,
                                 borderColor: 'rgba(164,231,164,0.72)',
                                 borderRadius: 42
